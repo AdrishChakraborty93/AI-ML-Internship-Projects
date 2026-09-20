@@ -64,7 +64,7 @@ Possible improvements include:
 - Cross-validation
 - Hyperparameter tuning
 
-  ## Task 2 – Feature Scaling, Model Optimization & Performance Comparison
+## Task 2 – Feature Scaling, Model Optimization & Performance Comparison
 
 ### Objective
 
