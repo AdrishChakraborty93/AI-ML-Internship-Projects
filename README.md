@@ -117,3 +117,44 @@ the evaluated models.
 - `AI_ML_Task2_Model_Comparison.ipynb` – Task 2 Jupyter/Colab notebook
 - `AI_ML_Task2_Model_Comparison_Report.pdf` – Task 2 report
 - `best_california_housing_model.pkl` – Saved trained model
+
+## Task 3: Model Validation, Overfitting Control & Hyperparameter Tuning
+
+### Objective
+
+Evaluate model generalization, identify overfitting, apply cross-validation, and tune Decision Tree hyperparameters using GridSearchCV.
+
+### Dataset
+
+California Housing Dataset
+
+### Techniques Used
+
+* Train-test split
+* Training and testing RMSE comparison
+* 5-fold cross-validation
+* GridSearchCV for hyperparameter tuning
+* RMSE and R² evaluation
+* Comparison of Linear Regression, Ridge Regression, and a tuned Decision Tree
+
+### Best Hyperparameters
+
+* `max_depth`: 10
+* `min_samples_split`: 10
+
+### Results
+
+| Model               | Test RMSE | Test R² |
+| ------------------- | --------: | ------: |
+| Tuned Decision Tree |     0.645 |   0.682 |
+| Ridge Regression    |     0.746 |   0.576 |
+| Linear Regression   |     0.746 |   0.576 |
+
+The default Decision Tree achieved an almost-zero training RMSE, indicating severe overfitting. GridSearchCV identified a better-performing configuration, and the tuned Decision Tree achieved the lowest test RMSE among the three models.
+
+### Key Learning
+
+This task demonstrated why training performance alone is insufficient, and how cross-validation and hyperparameter tuning can help select a model that generalizes better.
+
+**Tools:** Python, Pandas, NumPy, Matplotlib, Scikit-learn
+
