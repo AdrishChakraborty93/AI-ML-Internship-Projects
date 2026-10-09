@@ -156,5 +156,10 @@ The default Decision Tree achieved an almost-zero training RMSE, indicating seve
 
 This task demonstrated why training performance alone is insufficient, and how cross-validation and hyperparameter tuning can help select a model that generalizes better.
 
-**Tools:** Python, Pandas, NumPy, Matplotlib, Scikit-learn
+### Files
+
+- `AI_ML_Task3_Model_Validation_Tuning.ipynb` – Task 3 Jupyter/Colab notebook
+- `AI_ML_Task3_Model_Validation_Overfitting_Tuning_Report.pdf` – Task 3 report
+
+
 
