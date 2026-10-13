@@ -180,6 +180,14 @@ metrics, examine ROC-AUC, and test class weighting.
 -   Scaling: `StandardScaler` fitted on training data only for Logistic
     Regression; Decision Tree used unscaled features.
 
+### Model comparison
+
+| Model | Accuracy | Malignant Precision | Malignant Recall | Malignant F1 | ROC-AUC (Benign) |
+|---|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.982 | 0.976 | 0.976 | 0.976 | 0.995 |
+| Balanced Logistic Regression | 0.956 | 0.911 | 0.976 | 0.943 | 0.995 |
+| Decision Tree | 0.912 | 0.848 | 0.929 | 0.886 | 0.916 |
+
 
 ### Confusion matrices
 
