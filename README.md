@@ -161,5 +161,88 @@ This task demonstrated why training performance alone is insufficient, and how c
 - `AI_ML_Task3_Model_Validation_Tuning.ipynb` – Task 3 Jupyter/Colab notebook
 - `AI_ML_Task3_Model_Validation_Overfitting_Tuning_Report.pdf` – Task 3 report
 
+## Task 4: Classification Models, Evaluation Metrics & Handling Imbalanced Data
+
+### Objective
+
+Compare classification models on the scikit-learn Breast Cancer
+Wisconsin dataset, evaluate confusion matrices and classification
+metrics, examine ROC-AUC, and test class weighting.
+
+### Dataset
+
+-   Dataset: `sklearn.datasets.load_breast_cancer`
+-   Samples/features: 569 samples, 30 features
+-   Labels: malignant = `0`; benign = `1`
+-   Class distribution: 212 malignant, 357 benign
+-   Split: 80/20, `random_state=42`, stratified; test set has 114 cases
+    (42 malignant, 72 benign)
+-   Scaling: `StandardScaler` fitted on training data only for Logistic
+    Regression; Decision Tree used unscaled features.
+
+### Model comparison
+
+  -----------------------------------------------------------------------------
+  Model            Accuracy    Malignant    Malignant Malignant F1      ROC-AUC
+                               Precision       Recall                  (Benign)
+  ------------ ------------ ------------ ------------ ------------ ------------
+  Logistic            0.982        0.976        0.976        0.976        0.995
+  Regression                                                       
+
+  Balanced            0.956        0.911        0.976        0.943        0.995
+  Logistic                                                         
+  Regression                                                       
+
+  Decision            0.912        0.848        0.929        0.886        0.916
+  Tree                                                             
+  -----------------------------------------------------------------------------
+
+### Confusion matrices
+
+Rows are actual classes and columns are predicted classes, in this
+order: malignant, benign.
+
+### Logistic Regression
+
+`[[41, 1], [1, 71]]`
+
+41 malignant and 71 benign cases were correctly classified. One
+malignant case was predicted benign and one benign case was predicted
+malignant.
+
+### Balanced Logistic Regression
+
+`[[41, 1], [4, 68]]`
+
+41 malignant and 68 benign cases were correctly classified. One
+malignant case was predicted benign and four benign cases were predicted
+malignant.
+
+### Decision Tree
+
+`[[39, 3], [7, 65]]`
+
+39 malignant and 65 benign cases were correctly classified. Three
+malignant cases were predicted benign and seven benign cases were
+predicted malignant.
+
+### Interpretation
+
+-   Logistic Regression performed best overall on this test split, with
+    98.2% accuracy and 0.995 ROC-AUC for the benign class.
+-   Balanced Logistic Regression retained malignant recall at 0.976, but
+    malignant precision fell to 0.911 and accuracy to 0.956. In this
+    run, it classified more benign cases as malignant.
+-   Decision Tree had the lowest test performance among the three
+    models, with 0.912 accuracy and 0.916 ROC-AUC for the benign class.
+-   `predict_proba(X)[:, 1]` refers to the benign class because label 1
+    is benign. Malignant precision, recall, and F1 are calculated
+    separately for label 0.
+
+### Files
+
+- `AI_ML_Task4_Classification_Evaluation.ipynb` – Task 4 Jupyter/Colab notebook
+- `AI_ML_Task4_Classification_Report.pdf` – Task 4 report
+
 
 
