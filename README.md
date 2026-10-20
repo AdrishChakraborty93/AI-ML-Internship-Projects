@@ -236,5 +236,132 @@ predicted malignant.
 - `AI_ML_Task4_Classification_Evaluation.ipynb` – Task 4 Jupyter/Colab notebook
 - `AI_ML_Task4_Classification_Report.pdf` – Task 4 report
 
+## Task 5:  Deep Learning Fundamentals & Neural Network Implementation 
+
+### Objective
+
+Use random forest classifier on the scikit-learn Breast Cancer
+Wisconsin dataset, evaluate confusion matrices and classification
+metrics, examine ROC-AUC, and test class weighting.
+
+### Dataset
+
+-   Dataset: `sklearn.datasets.load_breast_cancer`
+-   Samples/features: 569 samples, 30 features
+-   Labels: malignant = `0`; benign = `1`
+-   Class distribution: 212 malignant, 357 benign
+-   Split: 80/20, `random_state=42`, stratified; test set has 114 cases
+    (42 malignant, 72 benign)
+-   Scaling: `StandardScaler` fitted on training data only for Logistic
+    Regression; Decision Tree used unscaled features.
+
+### Model comparison
+
+| Model | Accuracy | Malignant Precision | Malignant Recall | Malignant F1 | ROC-AUC (Benign) |
+|---|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.982 | 0.976 | 0.976 | 0.976 | 0.995 |
+| Balanced Logistic Regression | 0.956 | 0.911 | 0.976 | 0.943 | 0.995 |
+| Decision Tree | 0.912 | 0.848 | 0.929 | 0.886 | 0.916 |
+
+
+### Confusion matrices
+
+Rows are actual classes and columns are predicted classes, in this
+order: malignant, benign.
+
+### Logistic Regression
+
+`[[41, 1], [1, 71]]`
+
+41 malignant and 71 benign cases were correctly classified. One
+malignant case was predicted benign and one benign case was predicted
+malignant.
+
+### Balanced Logistic Regression
+
+`[[41, 1], [4, 68]]`
+
+41 malignant and 68 benign cases were correctly classified. One
+malignant case was predicted benign and four benign cases were predicted
+malignant.
+
+### Decision Tree
+
+`[[39, 3], [7, 65]]`
+
+39 malignant and 65 benign cases were correctly classified. Three
+malignant cases were predicted benign and seven benign cases were
+predicted malignant.
+
+### Interpretation
+
+-   Logistic Regression performed best overall on this test split, with
+    98.2% accuracy and 0.995 ROC-AUC for the benign class.
+-   Balanced Logistic Regression retained malignant recall at 0.976, but
+    malignant precision fell to 0.911 and accuracy to 0.956. In this
+    run, it classified more benign cases as malignant.
+-   Decision Tree had the lowest test performance among the three
+    models, with 0.912 accuracy and 0.916 ROC-AUC for the benign class.
+-   `predict_proba(X)[:, 1]` refers to the benign class because label 1
+    is benign. Malignant precision, recall, and F1 are calculated
+    separately for label 0.
+
+### Files
+- `AI_ML_Task5_Classification_Evaluation.ipynb` – Task 5 Jupyter/Colab notebook
+
+## Task 6: Deep Learning Fundamentals & Neural Network Implementation
+
+### Objective
+
+Implement a neural network using TensorFlow/Keras on the scikit-learn Breast Cancer Wisconsin dataset, apply feature scaling, evaluate model performance, visualize training and validation metrics, and compare the neural network with traditional machine learning models.
+
+### Dataset
+
+- Dataset: "sklearn.datasets.load_breast_cancer"
+- Samples/features: 569 samples, 30 features
+- Labels: malignant = "0"; benign = "1"
+- Split: 80/20 train-test split
+- Scaling: "StandardScaler" fitted on training data only and applied to the test data.
+
+### Model comparison
+
+| Layer | Configuration | 
+|---|---:|
+| Input Layer | 30 features |
+| Hidden layer 1 | 16 neurons, ReLU activation |
+| Hidden layer 2| 8 neurons, ReLU activation |
+| Output layer| 1 neuron, Sigmoid activation |
+
+### Model Configuration
+
+- Framework: TensorFlow / Keras
+- Optimizer: Adam
+- Loss function: Binary cross-entropy
+- Epochs: 50
+- Batch size: 16
+- Validation split: 20% of the training data
+
+### Evaluation
+
+The model is evaluated on the test dataset using accuracy and loss. A confusion matrix and classification metrics can also be used to examine classification errors.
+Training and validation accuracy/loss curves are plotted to observe the model's learning progress and identify potential overfitting.
+
+### Results Comparison
+
+The neural network's test results should be recorded after running the implementation. The model can be compared with the Logistic Regression model from Task 4. For a fair comparison, both models should use the same train-test split and evaluation metrics. Random Forest comparison requires the corresponding Task 5 results.
+
+### Observations
+
+- Feature scaling standardizes input features before neural network training.
+- ReLU activation is used in the hidden layers, while Sigmoid produces the binary classification output.
+- Adam optimizes the model weights, and binary cross-entropy measures classification loss.
+- Training and validation curves help assess learning progress and potential overfitting.
+- Test accuracy alone may not fully describe classification performance; the confusion matrix, precision, recall, and F1-score provide additional insight.
+
+### Files
+- `AI_ML_Task6_Deep_Learning.ipynb` – Task 6 Jupyter/Colab notebook
+- `Task_6_Neural_Network_Short_Report.pdf` – Task 6 report
+
+
 
 
