@@ -236,7 +236,7 @@ predicted malignant.
 - `AI_ML_Task4_Classification_Evaluation.ipynb` – Task 4 Jupyter/Colab notebook
 - `AI_ML_Task4_Classification_Report.pdf` – Task 4 report
 
-## Task 5:  Deep Learning Fundamentals & Neural Network Implementation 
+## Task 5:  Ensemble Learning and Optimization using Random Forest
 
 ### Objective
 
